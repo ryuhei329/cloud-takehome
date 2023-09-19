@@ -1,0 +1,38 @@
+---
+- hosts: all
+  become: yes  # Use sudo
+  remote_user: ubuntu
+  vars:
+    ansible_ssh_private_key_file: /Users/ryu/github/cloud-takehome/ssh/ryuheimac.pem
+  tasks:
+    - name: Create csg_security_agent directory
+      file:
+        path: /opt/csg_security_agent
+        state: directory
+      tags: create_directory
+
+    - name: Copy security_agent_installer.sh script
+      copy:
+        src: files/security_agent_installer_linux_amd64_v1.0.0.sh
+        dest: /opt/csg_security_agent/security_agent_installer.sh
+        mode: '0755'  # Ensure the script is executable
+      tags: copy_script
+
+    - name: Copy and configure security_agent_config.conf
+      template:
+        src: files/security_agent_config.conf.j2
+        dest: /opt/csg_security_agent/security_agent_config.conf
+        mode: '0644'
+      tags: copy_config
+
+    - name: Replace token value in the config file
+      replace:
+        path: /opt/csg_security_agent/security_agent_config.conf
+        regexp: '<add_unique_token_here>'
+        replace: 'CSG_$h4p3#7e'
+      tags: replace_token
+
+    - name: Install security agent
+      command: /opt/csg_security_agent/security_agent_installer.sh --config /opt/csg_security_agent/security_agent_config.conf --token CSG_$h4p3#7e
+      tags: install_security_agent
+
