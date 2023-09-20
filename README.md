@@ -62,7 +62,7 @@ Locate your AWS private key PEM file and position it within the designated "ssh"
 Additionally, it is crucial to execute the command `chmod 600 your_key.pem` in order to enforce stringent file permissions and enhance the file's security.
 
 
-**Terraform Configuration:**
+### Terraform Configuration:
 
 1. **main.tf**
 There are a few aspects within the `main.tf` file that you may need to customize:
@@ -76,7 +76,7 @@ The provided script, `mod_ansible_yaml.py`, offers the capability to modify play
 
 Feel free to tailor these configurations to meet your specific requirements.
 
-**Ansible Configuration:**
+### Ansible Configuration:
 
 1. **aws_ec2.yml**  
 Should you decide to modify the AWS region in the `main.tf` configuration mentioned above, it's essential to reflect these changes appropriately within the `aws_ec2.yml` file.
@@ -87,7 +87,7 @@ Within the playbook file located at `playbooks/install_security_agent.yml`, kind
 Please ensure that these modifications align with your specific configuration requirements.
 
 ## How to run:
-**Terraform Setup and Deployment Instructions:**
+### Terraform Setup and Deployment Instructions:
 
 Once you have made all the necessary adjustments to the files mentioned earlier, you are now prepared to proceed with the Terraform and Ansible deployment process.
 
@@ -105,7 +105,7 @@ Apply the configuration by running `terraform apply`. This command executes the 
 
 Upon successful completion of the deployment, you will receive the IP addresses and hostname information of the instance that Terraform has created.
 
-Ansible Deployment Instructions:
+### Ansible Deployment Instructions:
 
 To initiate the Ansible deployment process, follow these steps:
 
