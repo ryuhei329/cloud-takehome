@@ -114,7 +114,6 @@ Upon successful completion of the deployment, you will receive the IP addresses 
 
 **Note:** Although terraform execution is completed, SSH on the instance may not be available immediately, please wait a few minutes if ansible execution fails.
 
-`---`
 ### Ansible Deployment Instructions:
 
 To initiate the Ansible deployment process, follow these steps:
