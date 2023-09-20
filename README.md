@@ -91,16 +91,16 @@ Please ensure that these modifications align with your specific configuration re
 
 Once you have made all the necessary adjustments to the files mentioned earlier, you are now prepared to proceed with the Terraform and Ansible deployment process.
 
-Navigate to the Terraform Folder:  
+(1) Navigate to the Terraform Folder:  
 Begin by navigating to the Terraform folder within your project directory.
 
-Initialize Terraform:  
+(2) Initialize Terraform:  
 Execute the command `terraform init`. This action initializes your Terraform environment, setting it up for use.
 
-Preview the Infrastructure Changes:  
+(3) Preview the Infrastructure Changes:  
 Utilize the command `terraform plan` to preview the modifications that Terraform intends to make to your cloud environment. This step allows you to review the planned changes before applying them.
 
-Apply the Terraform Configuration:  
+(4) Apply the Terraform Configuration:  
 Apply the configuration by running `terraform apply`. This command executes the changes outlined in the preview, initiating the deployment process. Please be patient, as this step may take a few moments to complete. When prompted, ensure to confirm by typing "yes" to proceed.
 
 Upon successful completion of the deployment, you will receive the IP addresses and hostname information of the instance that Terraform has created.
@@ -109,16 +109,16 @@ Upon successful completion of the deployment, you will receive the IP addresses 
 
 To initiate the Ansible deployment process, follow these steps:
 
-Navigate to the Ansible Directory:  
+(1) Navigate to the Ansible Directory:  
 Begin by navigating to the Ansible folder within your project directory.
 
-Execute the Ansible Playbook:  
+(2) Execute the Ansible Playbook:  
 Run the following command: `ansible-playbook playbooks/install_security_agent.yml`. This playbook is responsible for performing the following tasks:
 
-(1) Creation of a folder named `csg_security_agent` under `/opt`.  
-(2) Placement of the installer script and configuration file onto the instance previously created by Terraform.  
-(3) Substitution of the token in the configuration file.  
-(4) Execution of the installer script.  
+1. Creation of a folder named `csg_security_agent` under `/opt`.  
+2. Placement of the installer script and configuration file onto the instance previously created by Terraform.  
+3. Substitution of the token in the configuration file.  
+4. Execution of the installer script.  
 
 This playbook automates the deployment of the security agent and ensures that the necessary configurations are in place
 
