@@ -27,38 +27,29 @@ cloud-takehome/
 
 ├── terraform/
 
-│   ├── main.tf 
-        #Main Terraform file
+│   ├── main.tf #Main Terraform file
 
-│   ├── mod_ansible_yaml.py 
-        #Script to modify ansible playbook YAML file (not necessary)
+│   ├── mod_ansible_yaml.py #Script to modify ansible playbook YAML file (not necessary)
 
-│   ├── outputs.tf 
-        #Output Terraform file
+│   ├── outputs.tf #Output Terraform file
 
-│   ├── terraform.tfstate 
-        #Terraform state file
+│   ├── terraform.tfstate #Terraform state file
 
 ├── ansible/
 
 │   ├── playbooks/
 
-│   │   ├── install_security_agent.yml  
-            #Playbook YAML file for installing security agent
+│   │   ├── install_security_agent.yml #Playbook YAML file for installing security agent
 
 │   ├── files/
 
-│   │   ├── security_agent_config.conf.j2   
-            #Security Agent config file
+│   │   ├── security_agent_config.conf.j2 #Security Agent config file
 
-│   │   └── security_agent_installer_linux_amd64_v1.0.0.sh   
-            #Security Agent installer script
+│   │   └── security_agent_installer_linux_amd64_v1.0.0.sh #Security Agent installer script
 
-│   ├── ansible.cfg   
-        #Ansible Config file
+│   ├── ansible.cfg #Ansible Config file
 
-│   └── aws_ec2.yml   
-        #YAML configuration file for AWS EC2 inventory
+│   └── aws_ec2.yml #YAML configuration file for AWS EC2 inventory
 
 │
 
@@ -71,4 +62,6 @@ cloud-takehome/
 └── .gitignore
 
 
+==================================
+Instruction:
 
