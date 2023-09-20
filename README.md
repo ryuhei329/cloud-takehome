@@ -10,7 +10,7 @@ Ensure that you have the following software versions installed before proceeding
 Terraform version: 1.5.7
 Ansible version: 2.15.4
 AWS Command Line Interface (AWS CLI) version: 2.13.18
-Configuring AWS Authentication:
+**Configuring AWS Authentication:**
 
 In order to proceed with the project, you will need to obtain the following AWS credentials:
 
@@ -32,8 +32,6 @@ cloud-takehome/
 │   ├── mod_ansible_yaml.py #Script to modify ansible playbook YAML file (not necessary)
 
 │   ├── outputs.tf #Output Terraform file
-
-│   ├── terraform.tfstate #Terraform state file
 
 ├── ansible/
 
@@ -64,7 +62,7 @@ cloud-takehome/
 
 # Instruction:
 ## Preparation: 
-AWS Configuration:
+**AWS Configuration:**
 
 To set up your AWS access and secret key, make use of the aws-cli command-line utility. Follow these steps:
 
@@ -72,35 +70,35 @@ Run the command `aws configure`.
 
 Adhere to the prompts and instructions that follow. You'll be prompted to input your AWS access key and secret key during this process. It's advisable to specify the same AWS region as you intend to specify in your `main.tf` configuration file.
 
-Private Key Placement:
+**Private Key Placement:**
 
 For SSH access, ensure you perform the following steps:
 
 Locate your AWS private key PEM file and position it within the designated "ssh" folder.
 
-Additionally, it is crucial to execute the command chmod 600 your_key.pem in order to enforce stringent file permissions and enhance the file's security.
+Additionally, it is crucial to execute the command `chmod 600 your_key.pem` in order to enforce stringent file permissions and enhance the file's security.
 
 
-Terraform Configuration:
+###Terraform Configuration:
 
-1. main.tf
-There are a few aspects within the main.tf file that you may need to customize:
+1. **main.tf**
+There are a few aspects within the `main.tf` file that you may need to customize:
 
-Region: If needed, please adjust the `region` parameter to match your preferred AWS region.
-AMI: Modify the `ami` parameter to match your chosen AMI ID, depending on your selected AWS region.
-key_name: Customize the `key_name` parameter with your AWS access key account name.
+**Region:** If needed, please adjust the `region` parameter to match your preferred AWS region.
+**AMI:** Modify the `ami` parameter to match your chosen AMI ID, depending on your selected AWS region.
+**key_name:** Customize the `key_name` parameter with your AWS access key account name.
 
-2. mod_ansible_yaml.py
+2. **mod_ansible_yaml.py**
 The provided script, `mod_ansible_yaml.py`, offers the capability to modify playbook YAML files, allowing for direct hostname specification. Please note that the configuration for `aws_ec2` in Ansible is pre-configured and may not be necessary for this use case.
 
 Feel free to tailor these configurations to meet your specific requirements.
 
-Ansible Configuration:
+###Ansible Configuration:
 
-1. aws_ec2.yml
+1. **aws_ec2.yml**
 Should you decide to modify the AWS region in the `main.tf` configuration mentioned above, it's essential to reflect these changes appropriately within the `aws_ec2.yml` file.
 
-2. playbooks/install_security_agent.yml
+2. **playbooks/install_security_agent.yml**
 Within the playbook file located at `playbooks/install_security_agent.yml`, kindly adjust the path and filename specified in line 6, denoted as "ansible_ssh_private_key_file:". This refers to the private key file obtained during prerequisite.
 
 Please ensure that these modifications align with your specific configuration requirements.
