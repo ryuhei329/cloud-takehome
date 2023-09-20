@@ -27,17 +27,11 @@ Please ensure that your AWS account is associated with an AWS User Group that ha
 
 cloud-takehome/  
 ├── terraform/  
-│   ├── main.tf <br />  
-        #Main Terraform file  <br />
-
-│   ├── mod_ansible_yaml.py #Script to modify ansible playbook YAML file (not necessary)
-
-│   ├── outputs.tf #Output Terraform file
-
-├── ansible/
-
-│   ├── playbooks/
-
+│&nbsp;&nbsp;&nbsp;├── main.tf #Main Terraform file  
+│&nbsp;&nbsp;&nbsp;├── mod_ansible_yaml.py #Script to modify ansible playbook YAML file (not necessary)  
+│&nbsp;&nbsp;&nbsp;├── outputs.tf #Output Terraform file  
+├── ansible/  
+│&nbsp;&nbsp;&nbsp;├── playbooks/  
 │   │   ├── install_security_agent.yml #Playbook YAML file for installing security agent
 
 │   ├── files/
