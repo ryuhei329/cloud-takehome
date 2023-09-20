@@ -67,21 +67,21 @@ Additionally, it is crucial to execute the command `chmod 600 your_key.pem` in o
 1. **main.tf**
 There are a few aspects within the `main.tf` file that you may need to customize:
 
-**Region:** If needed, please adjust the `region` parameter to match your preferred AWS region.
-**AMI:** Modify the `ami` parameter to match your chosen AMI ID, depending on your selected AWS region.
-**key_name:** Customize the `key_name` parameter with your AWS access key account name.
+**Region:** If needed, please adjust the `region` parameter to match your preferred AWS region.  
+**AMI:** Modify the `ami` parameter to match your chosen AMI ID, depending on your selected AWS region.  
+**key_name:** Customize the `key_name` parameter with your AWS access key account name.  
 
-2. **mod_ansible_yaml.py**
+2. **mod_ansible_yaml.py**  
 The provided script, `mod_ansible_yaml.py`, offers the capability to modify playbook YAML files, allowing for direct hostname specification. Please note that the configuration for `aws_ec2` in Ansible is pre-configured and may not be necessary for this use case.
 
 Feel free to tailor these configurations to meet your specific requirements.
 
 **Ansible Configuration:**
 
-1. **aws_ec2.yml**
+1. **aws_ec2.yml**  
 Should you decide to modify the AWS region in the `main.tf` configuration mentioned above, it's essential to reflect these changes appropriately within the `aws_ec2.yml` file.
 
-2. **playbooks/install_security_agent.yml**
+2. **playbooks/install_security_agent.yml**  
 Within the playbook file located at `playbooks/install_security_agent.yml`, kindly adjust the path and filename specified in line 6, denoted as "ansible_ssh_private_key_file:". This refers to the private key file obtained during prerequisite.
 
 Please ensure that these modifications align with your specific configuration requirements.
@@ -91,16 +91,16 @@ Please ensure that these modifications align with your specific configuration re
 
 Once you have made all the necessary adjustments to the files mentioned earlier, you are now prepared to proceed with the Terraform and Ansible deployment process.
 
-Navigate to the Terraform Folder:
+Navigate to the Terraform Folder:  
 Begin by navigating to the Terraform folder within your project directory.
 
-Initialize Terraform:
+Initialize Terraform:  
 Execute the command `terraform init`. This action initializes your Terraform environment, setting it up for use.
 
-Preview the Infrastructure Changes:
+Preview the Infrastructure Changes:  
 Utilize the command `terraform plan` to preview the modifications that Terraform intends to make to your cloud environment. This step allows you to review the planned changes before applying them.
 
-Apply the Terraform Configuration:
+Apply the Terraform Configuration:  
 Apply the configuration by running `terraform apply`. This command executes the changes outlined in the preview, initiating the deployment process. Please be patient, as this step may take a few moments to complete. When prompted, ensure to confirm by typing "yes" to proceed.
 
 Upon successful completion of the deployment, you will receive the IP addresses and hostname information of the instance that Terraform has created.
@@ -109,16 +109,16 @@ Ansible Deployment Instructions:
 
 To initiate the Ansible deployment process, follow these steps:
 
-Navigate to the Ansible Directory:
+Navigate to the Ansible Directory:  
 Begin by navigating to the Ansible folder within your project directory.
 
-Execute the Ansible Playbook:
+Execute the Ansible Playbook:  
 Run the following command: `ansible-playbook playbooks/install_security_agent.yml`. This playbook is responsible for performing the following tasks:
 
-(1) Creation of a folder named `csg_security_agent` under `/opt`.
-(2) Placement of the installer script and configuration file onto the instance previously created by Terraform.
-(3) Substitution of the token in the configuration file.
-(4) Execution of the installer script.
+(1) Creation of a folder named `csg_security_agent` under `/opt`.  
+(2) Placement of the installer script and configuration file onto the instance previously created by Terraform.  
+(3) Substitution of the token in the configuration file.  
+(4) Execution of the installer script.  
 
 This playbook automates the deployment of the security agent and ensures that the necessary configurations are in place
 
