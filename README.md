@@ -7,16 +7,18 @@ This is the README section for take home assignment.
 
 Ensure that you have the following software versions installed before proceeding
 
-Terraform version: 1.5.7
-Ansible version: 2.15.4
-AWS Command Line Interface (AWS CLI) version: 2.13.18
+Terraform version: 1.5.7__
+Ansible version: 2.15.4__
+AWS Command Line Interface (AWS CLI) version: 2.13.18__
+
 **Configuring AWS Authentication:**
 
 In order to proceed with the project, you will need to obtain the following AWS credentials:
 
-AWS Access Key ID
-AWS Secret Access Key
-A private key file for SSH access
+AWS Access Key ID__
+AWS Secret Access Key__
+A private key file for SSH access__
+
 To configure AWS access, use the aws configure command. Additionally, place the private key file into the "ssh" folder, and ensure that its permissions are set to "chmod 600" for enhanced security.
 
 Please ensure that your AWS account is associated with an AWS User Group that has the necessary permissions to create EC2 instances. This will allow you to successfully complete the tasks outlined in this assignment.
