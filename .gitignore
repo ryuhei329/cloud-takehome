@@ -1,4 +1,3 @@
 .*
 !/.gitignore
-ssh/*.pem
-!ssh/
+ssh/ryuheimac.pem
