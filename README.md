@@ -25,7 +25,9 @@ Directory Tree:
 
 cloud-takehome/
 ├── terraform/
+
 │   ├── main.tf #Main Terraform file
+
 │   ├── mod_ansible_yaml.py #Script to modify ansible playbook YAML file (not necessary)
 
 │   ├── outputs.tf #Output Terraform file
