@@ -25,11 +25,10 @@ Please ensure that your AWS account is associated with an AWS User Group that ha
 
 # Directory Tree:
 
-cloud-takehome/
-
-├── terraform/
-
-│   ├── main.tf #Main Terraform file
+cloud-takehome/  
+├── terraform/  
+│   ├── main.tf  
+        #Main Terraform file  
 
 │   ├── mod_ansible_yaml.py #Script to modify ansible playbook YAML file (not necessary)
 
