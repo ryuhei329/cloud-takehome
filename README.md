@@ -3,22 +3,23 @@
 
 This is the README section for take home assignment.
 
-Prerequisite:
+## Prerequisite
+
+Ensure that you have the following software versions installed before proceeding
+
 Terraform version: 1.5.7
 Ansible version: 2.15.4
-AWS-cli version: 2.13.18
+AWS Command Line Interface (AWS CLI) version: 2.13.18
+Configuring AWS Authentication:
 
+In order to proceed with the project, you will need to obtain the following AWS credentials:
 
-Configuring AWS authentication:
-You will need to obtain followings
-1. AWS Access Key ID
-2. AWS Secret Access Key
-3. Private Key file for ssh access
+AWS Access Key ID
+AWS Secret Access Key
+A private key file for SSH access
+To configure AWS access, use the aws configure command. Additionally, place the private key file into the "ssh" folder, and ensure that its permissions are set to "chmod 600" for enhanced security.
 
-Please use "aws configure" to configure AWS access.
-Place the private key file into ssh folder and make sure to "chmod 600" for security purpose.
-
-Please make sure your AWS account is assigned to an AWS User Group which has policy to create EC2 instances.
+Please ensure that your AWS account is associated with an AWS User Group that has the necessary permissions to create EC2 instances. This will allow you to successfully complete the tasks outlined in this assignment.
 
 # Directory Tree:
 
@@ -63,54 +64,83 @@ cloud-takehome/
 
 # Instruction:
 ## Preparation: 
-AWS:
-Use aws-cli command to configure your AWS access and secret key
-1). "aws configure"
-Follow the instructions and you will be entering your AWS access key and secret key.
-You can also specified the same AWS region you will be specifying in main.tf
-2). Placing your pem file in to ssh folder
-Please place your aws private key pem file into ssh folder.
-Also do not forget to run "chmod 600 your_key.pem" to protect the file.
+AWS Configuration:
 
-Terraform:
-1). main.tf  
-There are a few things you might have to modify.
+To set up your AWS access and secret key, make use of the aws-cli command-line utility. Follow these steps:
 
-region: Please modify to your preferred AWS region if necessary
-ami: Please modify this to AMI ID of your choice, base on the AWS region
-key_name: Please modify this to your AWS access key account name
+Run the command `aws configure`.
 
-2). mod_ansible_yaml.py
-This script can be used to modify playbook yaml file if you want to specify the hostname directly.
-aws_ec2 is configured for Ansible, this is not necessary.
+Adhere to the prompts and instructions that follow. You'll be prompted to input your AWS access key and secret key during this process. It's advisable to specify the same AWS region as you intend to specify in your `main.tf` configuration file.
 
-Ansible:
-1). aws_ec2.yml
-If you modify region in main.tf above, please modify regions accordingly.
+Private Key Placement:
 
-2). playbooks/install_security_agent.yml
-Please change the path/filename of pem file at line 6, "ansible_ssh_private_key_file:"
-This is the file you obtained from prerequisite #3.
+For SSH access, ensure you perform the following steps:
+
+Locate your AWS private key PEM file and position it within the designated "ssh" folder.
+
+Additionally, it is crucial to execute the command chmod 600 your_key.pem in order to enforce stringent file permissions and enhance the file's security.
+
+
+Terraform Configuration:
+
+1. main.tf
+There are a few aspects within the main.tf file that you may need to customize:
+
+Region: If needed, please adjust the `region` parameter to match your preferred AWS region.
+AMI: Modify the `ami` parameter to match your chosen AMI ID, depending on your selected AWS region.
+key_name: Customize the `key_name` parameter with your AWS access key account name.
+
+2. mod_ansible_yaml.py
+The provided script, `mod_ansible_yaml.py`, offers the capability to modify playbook YAML files, allowing for direct hostname specification. Please note that the configuration for `aws_ec2` in Ansible is pre-configured and may not be necessary for this use case.
+
+Feel free to tailor these configurations to meet your specific requirements.
+
+Ansible Configuration:
+
+1. aws_ec2.yml
+Should you decide to modify the AWS region in the `main.tf` configuration mentioned above, it's essential to reflect these changes appropriately within the `aws_ec2.yml` file.
+
+2. playbooks/install_security_agent.yml
+Within the playbook file located at `playbooks/install_security_agent.yml`, kindly adjust the path and filename specified in line 6, denoted as "ansible_ssh_private_key_file:". This refers to the private key file obtained during prerequisite.
+
+Please ensure that these modifications align with your specific configuration requirements.
 
 ## How to run:
-Terraform:
-Once you have modified all necessary files above, you are ready to proceed with Terraform and Ansible
-1. Go to terraform folder.
-2. "terraform init" 
-This will initialize your terraform environment.
-3. "terraform plan"
-This will show the preview of modification that terraform will be making on the cloud environment.
-4. "terraform apply"
-This will execute the preview above, and will take a few to complete the deployment.
-Do not forget to type "yes" when prompted to proceed.
-Up on completion, you will be able to obtain the IP addresses and hostname of the instance which has been created by terraform.
+**Terraform Setup and Deployment Instructions:**
 
-Ansible:
-1. Go to ansible folder.
-2. "ansible-playbook playbooks/install_security_agent.yml"
-This playbook will execute following
-(1). Create a folder, csg_security_agent under /opt
-(2). Place the installer script and config file the instance created by Terraform
-(3). Replace the token in the config file
-(4). Execute the installer script
+Once you have made all the necessary adjustments to the files mentioned earlier, you are now prepared to proceed with the Terraform and Ansible deployment process.
+
+Navigate to the Terraform Folder:
+Begin by navigating to the Terraform folder within your project directory.
+
+Initialize Terraform:
+Execute the command `terraform init`. This action initializes your Terraform environment, setting it up for use.
+
+Preview the Infrastructure Changes:
+Utilize the command `terraform plan` to preview the modifications that Terraform intends to make to your cloud environment. This step allows you to review the planned changes before applying them.
+
+Apply the Terraform Configuration:
+Apply the configuration by running `terraform apply`. This command executes the changes outlined in the preview, initiating the deployment process. Please be patient, as this step may take a few moments to complete. When prompted, ensure to confirm by typing "yes" to proceed.
+
+Upon successful completion of the deployment, you will receive the IP addresses and hostname information of the instance that Terraform has created.
+
+Ansible Deployment Instructions:
+
+To initiate the Ansible deployment process, follow these steps:
+
+Navigate to the Ansible Directory:
+Begin by navigating to the Ansible folder within your project directory.
+
+Execute the Ansible Playbook:
+Run the following command: `ansible-playbook playbooks/install_security_agent.yml`. This playbook is responsible for performing the following tasks:
+
+(1) Creation of a folder named `csg_security_agent` under `/opt`.
+(2) Placement of the installer script and configuration file onto the instance previously created by Terraform.
+(3) Substitution of the token in the configuration file.
+(4) Execution of the installer script.
+
+This playbook automates the deployment of the security agent and ensures that the necessary configurations are in place
+
+This marks the conclusion of the Terraform/Ansible deployment process
+
 
