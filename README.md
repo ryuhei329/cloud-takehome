@@ -19,8 +19,6 @@ AWS Access Key ID
 AWS Secret Access Key  
 A private key file for SSH access  
 
-To configure AWS access, use the aws configure command. Additionally, place the private key file into the "ssh" folder, and ensure that its permissions are set to "chmod 600" for enhanced security.
-
 Please ensure that your AWS account is associated with an AWS User Group that has the necessary permissions to create EC2 instances. This will allow you to successfully complete the tasks outlined in this assignment.
 
 # Directory Tree:
@@ -81,7 +79,7 @@ There are a few aspects within the `main.tf` file that you may need to customize
 **key_name:** Customize the `key_name` parameter with your AWS access key account name.  
 
 2. **mod_ansible_yaml.py**  
-The provided script, `mod_ansible_yaml.py`, offers the capability to modify playbook YAML files, allowing for direct hostname specification. Please note that the configuration for `aws_ec2` in Ansible is pre-configured and may not be necessary for this use case.
+The provided script, `mod_ansible_yaml.py`, offers the capability to modify playbook YAML files, allowing for direct hostname specification. Please note that `aws_ec2` in Ansible is pre-configured and may not be necessary for this use case.
 
 Feel free to tailor these configurations to meet your specific requirements.
 
@@ -113,6 +111,8 @@ Utilize the command `terraform plan` to preview the modifications that Terraform
 Apply the configuration by running `terraform apply`. This command executes the changes outlined in the preview, initiating the deployment process. Please be patient, as this step may take a few moments to complete. When prompted, ensure to confirm by typing "yes" to proceed.
 
 Upon successful completion of the deployment, you will receive the IP addresses and hostname information of the instance that Terraform has created.
+
+**Note:** Although terraform execution is completed, SSH on the instance may not be available immediately, please wait a few minutes if ansible execution fails.
 
 ### Ansible Deployment Instructions:
 
