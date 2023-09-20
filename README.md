@@ -44,10 +44,10 @@ Please ensure that your AWS account is associated with an AWS User Group that ha
         #Security Agent installer script  
     - ansible.cfg  
       #Ansible Config file  
-    - aws_ec2.yml 
+    - aws_ec2.yml   
       #YAML configuration file for AWS EC2 inventory  
   - ssh/  
-    - your_key.pem 
+    - your_key.pem  
       #This will be your private key file. You can rename as you like.  
   - README.md  
   - .gitignore  
