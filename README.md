@@ -27,8 +27,8 @@ Please ensure that your AWS account is associated with an AWS User Group that ha
 
 cloud-takehome/  
 ├── terraform/  
-│   ├── main.tf  
-        #Main Terraform file  
+│&nbsp;&nbsp;&nbsp;├── main.tf  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Main Terraform file  
 
 │   ├── mod_ansible_yaml.py #Script to modify ansible playbook YAML file (not necessary)
 
